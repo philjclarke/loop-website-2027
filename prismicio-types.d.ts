@@ -336,7 +336,7 @@ interface CaseStudyDocumentData {
  */
 export type CaseStudyDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<CaseStudyDocumentData>, "case_study", Lang>;
 
-type HomepageDocumentDataSlicesSlice = HeroSlice | TextBlockSlice | NumberedListSlice | ClientListSlice | CaseStudyListSlice | BlogListSlice | TestimonialsSlice | TeamSlice | ImageBlockSlice
+type HomepageDocumentDataSlicesSlice = HeroSlice | TextBlockSlice | NumberedListSlice | ClientListSlice | CaseStudyListSlice | BlogListSlice | TestimonialsSlice | TeamSlice | ImageBlockSlice | ContactDetailsSlice
 
 /**
  * Content for Homepage documents
@@ -396,7 +396,7 @@ interface HomepageDocumentData {
  */
 export type HomepageDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<HomepageDocumentData>, "homepage", Lang>;
 
-type PageDocumentDataSlicesSlice = HeroSlice | TextBlockSlice | NumberedListSlice | ClientListSlice | CaseStudyListSlice | BlogListSlice | TestimonialsSlice | TeamSlice | ImageBlockSlice
+type PageDocumentDataSlicesSlice = HeroSlice | TextBlockSlice | NumberedListSlice | ClientListSlice | CaseStudyListSlice | BlogListSlice | TestimonialsSlice | TeamSlice | ImageBlockSlice | ContactDetailsSlice
 
 /**
  * Content for Page documents
@@ -792,6 +792,104 @@ type ClientListSliceVariation = ClientListSliceDefault
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type ClientListSlice = prismic.SharedSlice<"client_list", ClientListSliceVariation>;
+
+/**
+ * Primary content in *Contact Details → Default → Primary*
+ */
+export interface ContactDetailsSliceDefaultPrimary {
+	/**
+	 * Section label field in *Contact Details → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: contact_details.default.primary.label
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	label: prismic.KeyTextField;
+	
+	/**
+	 * Heading field in *Contact Details → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: contact_details.default.primary.heading
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	heading: prismic.RichTextField;
+	
+	/**
+	 * Body field in *Contact Details → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: contact_details.default.primary.body
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	body: prismic.RichTextField;
+	
+	/**
+	 * Email field in *Contact Details → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: contact_details.default.primary.email
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	email: prismic.KeyTextField;
+	
+	/**
+	 * Phone field in *Contact Details → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: contact_details.default.primary.phone
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	phone: prismic.KeyTextField;
+	
+	/**
+	 * Address field in *Contact Details → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: contact_details.default.primary.address
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	address: prismic.RichTextField;
+	
+	/**
+	 * Other links (e.g. LinkedIn, book a call) field in *Contact Details → Default → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: contact_details.default.primary.links
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	links: prismic.Repeatable<prismic.LinkField<string, string, unknown, prismic.FieldState, never>>;
+}
+
+/**
+ * Default variation for Contact Details Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContactDetailsSliceDefault = prismic.SharedSliceVariation<"default", Simplify<ContactDetailsSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *Contact Details*
+ */
+type ContactDetailsSliceVariation = ContactDetailsSliceDefault
+
+/**
+ * Contact Details Shared Slice
+ *
+ * - **API ID**: `contact_details`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContactDetailsSlice = prismic.SharedSlice<"contact_details", ContactDetailsSliceVariation>;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -1299,6 +1397,10 @@ declare module "@prismicio/client" {
 			ClientListSliceDefaultPrimary,
 			ClientListSliceVariation,
 			ClientListSliceDefault,
+			ContactDetailsSlice,
+			ContactDetailsSliceDefaultPrimary,
+			ContactDetailsSliceVariation,
+			ContactDetailsSliceDefault,
 			HeroSlice,
 			HeroSliceDefaultPrimary,
 			HeroSliceVariation,

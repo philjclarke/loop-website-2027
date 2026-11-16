@@ -10,6 +10,7 @@ const FALLBACK_NAV = [
   { href: "/case-studies", label: "Case studies" },
   { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Header({ settings }: { settings: SettingsDocument | null }) {
