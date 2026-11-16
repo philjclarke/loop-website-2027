@@ -12,7 +12,7 @@ export type CaseStudyListProps = SliceComponentProps<Content.CaseStudyListSlice>
 
 /**
  * Lists case studies. On the homepage, tick "Featured only" and untick
- * "Show filters"; on the Case studies page, leave filters on.
+ * "Show filters"; on the Work page, leave filters on.
  */
 export default async function CaseStudyList({ slice }: CaseStudyListProps) {
   const { label, heading, featured_only, show_filters, link } = slice.primary;
@@ -42,7 +42,7 @@ export default async function CaseStudyList({ slice }: CaseStudyListProps) {
             ))}
           </ul>
         )}
-        {!docs.length && <p className="text-muted">Case studies coming soon.</p>}
+        {!docs.length && <p className="text-muted">More work coming soon.</p>}
       </div>
       <div className="mt-10">
         <Button field={link} variant="text" />

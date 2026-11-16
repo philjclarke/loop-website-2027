@@ -42,7 +42,7 @@ export function CaseStudyFilter({
           <li key={item.id}>{item.card}</li>
         ))}
       </ul>
-      {!visible.length && <p className="mt-10 text-muted">No case studies match those filters.</p>}
+      {!visible.length && <p className="mt-10 text-muted">Nothing matches those filters.</p>}
     </div>
   );
 }

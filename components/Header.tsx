@@ -9,7 +9,7 @@ import { ThemeToggle } from "./ThemeToggle";
 /** Used until navigation is filled in on the Settings document in Prismic. */
 const FALLBACK_NAV = [
   { href: "/services", label: "Services" },
-  { href: "/case-studies", label: "Case studies" },
+  { href: "/work", label: "Work" },
   { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },

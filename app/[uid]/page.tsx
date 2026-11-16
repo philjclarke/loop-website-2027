@@ -7,7 +7,7 @@ import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { getPage, staticParamsOrPlaceholder } from "@/lib/content";
 
-/** Services, About, Case studies (listing), Blog (listing), legal pages, etc. */
+/** Services, About, Work (listing), Blog (listing), legal pages, etc. */
 export default async function Page({ params }: PageProps<"/[uid]">) {
   const { uid } = await params;
   const page = await getPage(uid, await getPreviewRef());

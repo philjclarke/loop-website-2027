@@ -11,7 +11,7 @@ import { Container } from "@/components/Container";
 import { RichText } from "@/components/RichText";
 import { SERVICES } from "@/components/CaseStudyCard";
 
-export default async function CaseStudy({ params }: PageProps<"/case-studies/[uid]">) {
+export default async function CaseStudy({ params }: PageProps<"/work/[uid]">) {
   const { uid } = await params;
   const page = await getCaseStudy(uid, await getPreviewRef());
   if (!page) notFound();
@@ -28,8 +28,8 @@ export default async function CaseStudy({ params }: PageProps<"/case-studies/[ui
   return (
     <article>
       <Container className="pt-12 pb-16 sm:pt-20">
-        <Link href="/case-studies" className="text-sm text-muted hover:text-foreground">
-          ← Case studies
+        <Link href="/work" className="text-sm text-muted hover:text-foreground">
+          ← Work
         </Link>
         <div className="mt-8 max-w-4xl">
           <RichText field={data.title} />
@@ -73,7 +73,7 @@ export default async function CaseStudy({ params }: PageProps<"/case-studies/[ui
 
 export async function generateMetadata({
   params,
-}: PageProps<"/case-studies/[uid]">): Promise<Metadata> {
+}: PageProps<"/work/[uid]">): Promise<Metadata> {
   const { uid } = await params;
   const page = await getCaseStudy(uid, await getPreviewRef());
   if (!page) return {};

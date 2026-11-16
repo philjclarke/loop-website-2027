@@ -11,7 +11,7 @@
     },
     {
       "type": "case_study",
-      "path": "/case-studies/:uid"
+      "path": "/work/:uid"
     },
     {
       "type": "blog_post",
