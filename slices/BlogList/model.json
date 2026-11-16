@@ -1,0 +1,44 @@
+{
+  "id": "blog_list",
+  "name": "Blog List",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "label": {
+          "config": {
+            "label": "Section label"
+          },
+          "type": "Text"
+        },
+        "heading": {
+          "config": {
+            "label": "Heading",
+            "single": "heading2"
+          },
+          "type": "StructuredText"
+        },
+        "limit": {
+          "config": {
+            "label": "Number of posts (empty = all)",
+            "min": 1
+          },
+          "type": "Number"
+        },
+        "link": {
+          "config": {
+            "allowText": true,
+            "label": "Link"
+          },
+          "type": "Link"
+        }
+      },
+      "version": ""
+    }
+  ]
+}

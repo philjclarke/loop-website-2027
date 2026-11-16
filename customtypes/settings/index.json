@@ -1,0 +1,72 @@
+{
+  "format": "custom",
+  "id": "settings",
+  "json": {
+    "Main": {
+      "site_name": {
+        "config": {
+          "label": "Site name",
+          "placeholder": "loop"
+        },
+        "type": "Text"
+      },
+      "navigation": {
+        "config": {
+          "allowText": true,
+          "label": "Navigation",
+          "repeat": true
+        },
+        "type": "Link"
+      },
+      "cta_heading": {
+        "config": {
+          "label": "Footer CTA heading",
+          "placeholder": "Ready to start a project?",
+          "single": "heading2"
+        },
+        "type": "StructuredText"
+      },
+      "cta_text": {
+        "config": {
+          "label": "Footer CTA text",
+          "multi": "paragraph,strong,em,hyperlink"
+        },
+        "type": "StructuredText"
+      },
+      "cta_link": {
+        "config": {
+          "allowText": true,
+          "label": "Footer CTA button"
+        },
+        "type": "Link"
+      },
+      "email": {
+        "config": {
+          "label": "Contact email"
+        },
+        "type": "Text"
+      },
+      "social_links": {
+        "config": {
+          "allowTargetBlank": true,
+          "allowText": true,
+          "label": "Social links",
+          "repeat": true,
+          "select": "web"
+        },
+        "type": "Link"
+      },
+      "legal_links": {
+        "config": {
+          "allowText": true,
+          "label": "Legal links",
+          "repeat": true
+        },
+        "type": "Link"
+      }
+    }
+  },
+  "label": "Settings",
+  "repeatable": false,
+  "status": true
+}

@@ -1,0 +1,50 @@
+{
+  "id": "testimonials",
+  "name": "Testimonials",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "label": {
+          "config": {
+            "label": "Section label"
+          },
+          "type": "Text"
+        },
+        "items": {
+          "config": {
+            "fields": {
+              "quote": {
+                "config": {
+                  "label": "Quote",
+                  "multi": "paragraph,strong,em"
+                },
+                "type": "StructuredText"
+              },
+              "name": {
+                "config": {
+                  "label": "Name"
+                },
+                "type": "Text"
+              },
+              "role": {
+                "config": {
+                  "label": "Role and organisation"
+                },
+                "type": "Text"
+              }
+            },
+            "label": "Testimonials"
+          },
+          "type": "Group"
+        }
+      },
+      "version": ""
+    }
+  ]
+}

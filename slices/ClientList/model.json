@@ -1,0 +1,50 @@
+{
+  "id": "client_list",
+  "name": "Client List",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "label": {
+          "config": {
+            "label": "Section label"
+          },
+          "type": "Text"
+        },
+        "heading": {
+          "config": {
+            "label": "Heading",
+            "single": "heading2"
+          },
+          "type": "StructuredText"
+        },
+        "clients": {
+          "config": {
+            "fields": {
+              "name": {
+                "config": {
+                  "label": "Name"
+                },
+                "type": "Text"
+              },
+              "logo": {
+                "config": {
+                  "label": "Logo (optional)"
+                },
+                "type": "Image"
+              }
+            },
+            "label": "Clients"
+          },
+          "type": "Group"
+        }
+      },
+      "version": ""
+    }
+  ]
+}

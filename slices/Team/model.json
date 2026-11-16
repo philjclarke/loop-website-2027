@@ -1,0 +1,63 @@
+{
+  "id": "team",
+  "name": "Team",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "label": {
+          "config": {
+            "label": "Section label"
+          },
+          "type": "Text"
+        },
+        "heading": {
+          "config": {
+            "label": "Heading",
+            "single": "heading2"
+          },
+          "type": "StructuredText"
+        },
+        "members": {
+          "config": {
+            "fields": {
+              "photo": {
+                "config": {
+                  "label": "Photo"
+                },
+                "type": "Image"
+              },
+              "name": {
+                "config": {
+                  "label": "Name"
+                },
+                "type": "Text"
+              },
+              "role": {
+                "config": {
+                  "label": "Role"
+                },
+                "type": "Text"
+              },
+              "bio": {
+                "config": {
+                  "label": "Bio",
+                  "multi": "paragraph,strong,em,hyperlink"
+                },
+                "type": "StructuredText"
+              }
+            },
+            "label": "Members"
+          },
+          "type": "Group"
+        }
+      },
+      "version": ""
+    }
+  ]
+}

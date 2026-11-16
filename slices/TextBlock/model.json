@@ -1,0 +1,44 @@
+{
+  "id": "text_block",
+  "name": "Text Block",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "label": {
+          "config": {
+            "label": "Section label"
+          },
+          "type": "Text"
+        },
+        "heading": {
+          "config": {
+            "label": "Heading",
+            "single": "heading2"
+          },
+          "type": "StructuredText"
+        },
+        "body": {
+          "config": {
+            "label": "Body",
+            "multi": "heading3,paragraph,strong,em,hyperlink,list-item,o-list-item"
+          },
+          "type": "StructuredText"
+        },
+        "link": {
+          "config": {
+            "allowText": true,
+            "label": "Link"
+          },
+          "type": "Link"
+        }
+      },
+      "version": ""
+    }
+  ]
+}

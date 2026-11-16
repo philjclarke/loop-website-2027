@@ -1,0 +1,147 @@
+{
+  "format": "page",
+  "id": "case_study",
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "slices": {
+        "config": {
+          "choices": {
+            "text_block": {
+              "type": "SharedSlice"
+            },
+            "image_block": {
+              "type": "SharedSlice"
+            },
+            "numbered_list": {
+              "type": "SharedSlice"
+            },
+            "testimonials": {
+              "type": "SharedSlice"
+            }
+          }
+        },
+        "fieldset": "Slice Zone",
+        "type": "Slices"
+      },
+      "title": {
+        "config": {
+          "label": "Title",
+          "placeholder": "e.g. Energising Futures",
+          "single": "heading1"
+        },
+        "type": "StructuredText"
+      },
+      "client": {
+        "config": {
+          "label": "Client",
+          "placeholder": "Client or organisation name"
+        },
+        "type": "Text"
+      },
+      "summary": {
+        "config": {
+          "label": "Summary",
+          "multi": "paragraph,strong,em,hyperlink",
+          "placeholder": "One or two sentences shown on cards and at the top of the page"
+        },
+        "type": "StructuredText"
+      },
+      "featured_image": {
+        "config": {
+          "label": "Featured image"
+        },
+        "type": "Image"
+      },
+      "scope": {
+        "config": {
+          "default_value": "Project",
+          "label": "Scope",
+          "options": [
+            "Project",
+            "Company-wide"
+          ]
+        },
+        "type": "Select"
+      },
+      "design": {
+        "config": {
+          "default_value": false,
+          "label": "Service: Design"
+        },
+        "type": "Boolean"
+      },
+      "development": {
+        "config": {
+          "default_value": false,
+          "label": "Service: Development"
+        },
+        "type": "Boolean"
+      },
+      "learning_support": {
+        "config": {
+          "default_value": false,
+          "label": "Service: Learning support"
+        },
+        "type": "Boolean"
+      },
+      "year": {
+        "config": {
+          "label": "Year",
+          "placeholder": "e.g. 2025"
+        },
+        "type": "Text"
+      },
+      "website": {
+        "config": {
+          "allowTargetBlank": true,
+          "label": "Website",
+          "select": "web"
+        },
+        "type": "Link"
+      },
+      "featured": {
+        "config": {
+          "default_value": false,
+          "label": "Feature on homepage"
+        },
+        "type": "Boolean"
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      },
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      }
+    }
+  },
+  "label": "Case Study",
+  "repeatable": true,
+  "status": true
+}

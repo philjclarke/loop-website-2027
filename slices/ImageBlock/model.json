@@ -1,0 +1,29 @@
+{
+  "id": "image_block",
+  "name": "Image Block",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "image": {
+          "config": {
+            "label": "Image"
+          },
+          "type": "Image"
+        },
+        "caption": {
+          "config": {
+            "label": "Caption"
+          },
+          "type": "Text"
+        }
+      },
+      "version": ""
+    }
+  ]
+}

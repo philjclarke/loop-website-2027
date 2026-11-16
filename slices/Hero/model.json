@@ -1,0 +1,45 @@
+{
+  "id": "hero",
+  "name": "Hero",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "eyebrow": {
+          "config": {
+            "label": "Eyebrow",
+            "placeholder": "e.g. Design for education"
+          },
+          "type": "Text"
+        },
+        "heading": {
+          "config": {
+            "label": "Heading",
+            "single": "heading1"
+          },
+          "type": "StructuredText"
+        },
+        "body": {
+          "config": {
+            "label": "Body",
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          },
+          "type": "StructuredText"
+        },
+        "button": {
+          "config": {
+            "allowText": true,
+            "label": "Button"
+          },
+          "type": "Link"
+        }
+      },
+      "version": ""
+    }
+  ]
+}
