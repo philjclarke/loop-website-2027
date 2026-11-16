@@ -291,7 +291,18 @@ interface CaseStudyDocumentData {
 	 * - **Tab**: Main
 	 * - **Documentation**: https://prismic.io/docs/fields/boolean
 	 */
-	featured: prismic.BooleanField;/**
+	featured: prismic.BooleanField;
+	
+	/**
+	 * Sort order (lower numbers first) field in *Case Study*
+	 *
+	 * - **Field Type**: Number
+	 * - **Placeholder**: e.g. 10
+	 * - **API ID Path**: case_study.sort_order
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/number
+	 */
+	sort_order: prismic.NumberField;/**
 	 * Meta Title field in *Case Study*
 	 *
 	 * - **Field Type**: Text

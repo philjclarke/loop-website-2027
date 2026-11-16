@@ -1,4 +1,5 @@
 import { cacheLife, cacheTag } from "next/cache";
+import { asText } from "@prismicio/client";
 import { cacheTagPrismicPages } from "@prismicio/next";
 import { createClient } from "@/prismicio";
 
@@ -51,14 +52,20 @@ export async function getCaseStudy(uid: string, ref?: string) {
   return page;
 }
 
+/**
+ * Case studies in the editor's chosen order: by "Sort order" (lowest first),
+ * then alphabetically by title for any without one.
+ */
 export async function getCaseStudies(ref?: string) {
   "use cache";
-  const pages = await createClient().getAllByType("case_study", {
-    ref,
-    orderings: [{ field: "document.first_publication_date", direction: "desc" }],
-  });
+  const pages = await createClient().getAllByType("case_study", { ref });
   tag(pages);
-  return pages;
+  return pages.toSorted((a, b) => {
+    const orderA = a.data.sort_order ?? Infinity;
+    const orderB = b.data.sort_order ?? Infinity;
+    if (orderA !== orderB) return orderA - orderB;
+    return asText(a.data.title).localeCompare(asText(b.data.title), "en-GB");
+  });
 }
 
 export async function getBlogPost(uid: string, ref?: string) {
