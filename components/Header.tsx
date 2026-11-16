@@ -3,6 +3,7 @@ import { isFilled } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 import type { SettingsDocument } from "@/prismicio-types";
 import { Container } from "./Container";
+import { ThemeToggle } from "./ThemeToggle";
 
 /** Used until navigation is filled in on the Settings document in Prismic. */
 const FALLBACK_NAV = [
@@ -23,23 +24,26 @@ export function Header({ settings }: { settings: SettingsDocument | null }) {
         <Link href="/" className="text-lg font-semibold tracking-tight">
           {siteName}
         </Link>
-        <nav aria-label="Main">
-          <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-            {nav.length
-              ? nav.map((link, i) => (
-                  <li key={i}>
-                    <PrismicNextLink field={link} className="hover:text-muted" />
-                  </li>
-                ))
-              : FALLBACK_NAV.map((item) => (
-                  <li key={item.href}>
-                    <Link href={item.href} className="hover:text-muted">
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-          </ul>
-        </nav>
+        <div className="flex items-center gap-6">
+          <nav aria-label="Main">
+            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+              {nav.length
+                ? nav.map((link, i) => (
+                    <li key={i}>
+                      <PrismicNextLink field={link} className="hover:text-muted" />
+                    </li>
+                  ))
+                : FALLBACK_NAV.map((item) => (
+                    <li key={item.href}>
+                      <Link href={item.href} className="hover:text-muted">
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+            </ul>
+          </nav>
+          <ThemeToggle />
+        </div>
       </Container>
     </header>
   );

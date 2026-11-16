@@ -6,6 +6,7 @@ import { repositoryName } from "@/prismicio";
 import { getSettings } from "@/lib/content";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { themeScript } from "@/lib/theme";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -25,7 +26,14 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   const settings = await getSettings(await getPreviewRef());
 
   return (
-    <html lang="en-GB" className={`${geistSans.variable} h-full antialiased`}>
+    <html
+      lang="en-GB"
+      className={`${geistSans.variable} h-full antialiased`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="flex min-h-full flex-col">
         <Header settings={settings} />
         <main className="flex-1">{children}</main>
