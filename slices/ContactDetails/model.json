@@ -1,0 +1,65 @@
+{
+  "id": "contact_details",
+  "name": "Contact Details",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "label": {
+          "config": {
+            "label": "Section label"
+          },
+          "type": "Text"
+        },
+        "heading": {
+          "config": {
+            "label": "Heading",
+            "single": "heading2"
+          },
+          "type": "StructuredText"
+        },
+        "body": {
+          "config": {
+            "label": "Body",
+            "multi": "paragraph,strong,em,hyperlink"
+          },
+          "type": "StructuredText"
+        },
+        "email": {
+          "config": {
+            "label": "Email"
+          },
+          "type": "Text"
+        },
+        "phone": {
+          "config": {
+            "label": "Phone"
+          },
+          "type": "Text"
+        },
+        "address": {
+          "config": {
+            "label": "Address",
+            "multi": "paragraph"
+          },
+          "type": "StructuredText"
+        },
+        "links": {
+          "config": {
+            "allowTargetBlank": true,
+            "allowText": true,
+            "label": "Other links (e.g. LinkedIn, book a call)",
+            "repeat": true
+          },
+          "type": "Link"
+        }
+      },
+      "version": ""
+    }
+  ]
+}

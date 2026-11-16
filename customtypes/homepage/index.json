@@ -32,6 +32,9 @@
             },
             "image_block": {
               "type": "SharedSlice"
+            },
+            "contact_details": {
+              "type": "SharedSlice"
             }
           }
         },
