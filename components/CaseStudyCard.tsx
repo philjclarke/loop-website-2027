@@ -1,0 +1,38 @@
+import { asText } from "@prismicio/client";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import type { CaseStudyDocument } from "@/prismicio-types";
+
+export const SERVICES = [
+  { id: "design", label: "Design" },
+  { id: "development", label: "Development" },
+  { id: "learning_support", label: "Learning support" },
+] as const;
+
+export type ServiceId = (typeof SERVICES)[number]["id"];
+
+export function caseStudyServices(doc: CaseStudyDocument): ServiceId[] {
+  return SERVICES.filter((s) => doc.data[s.id]).map((s) => s.id);
+}
+
+export function CaseStudyCard({ doc }: { doc: CaseStudyDocument }) {
+  const services = SERVICES.filter((s) => doc.data[s.id]).map((s) => s.label);
+  const meta = [doc.data.scope, ...services].filter(Boolean).join(" · ");
+
+  return (
+    <PrismicNextLink document={doc} className="group block">
+      <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-surface">
+        <PrismicNextImage
+          field={doc.data.featured_image}
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+          fallbackAlt=""
+          sizes="(min-width: 768px) 40vw, 100vw"
+        />
+      </div>
+      <div className="mt-4 flex items-baseline justify-between gap-4">
+        <h3 className="text-lg font-medium">{asText(doc.data.title) || doc.uid}</h3>
+        {doc.data.year && <span className="text-sm text-muted">{doc.data.year}</span>}
+      </div>
+      {meta && <p className="mt-1 text-sm text-muted">{meta}</p>}
+    </PrismicNextLink>
+  );
+}

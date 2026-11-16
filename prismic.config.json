@@ -1,4 +1,21 @@
 {
   "repositoryName": "loop-website",
-  "routes": []
+  "routes": [
+    {
+      "type": "homepage",
+      "path": "/"
+    },
+    {
+      "type": "page",
+      "path": "/:uid"
+    },
+    {
+      "type": "case_study",
+      "path": "/case-studies/:uid"
+    },
+    {
+      "type": "blog_post",
+      "path": "/blog/:uid"
+    }
+  ]
 }
