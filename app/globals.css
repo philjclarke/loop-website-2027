@@ -52,7 +52,7 @@
   --color-muted: var(--muted);
   --color-line: var(--line);
   --color-surface: var(--surface);
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Figtree } from "next/font/google";
 import { PrismicPreview } from "@prismicio/next";
 import { getPreviewRef } from "@prismicio/next";
 import { repositoryName } from "@/prismicio";
@@ -9,8 +9,8 @@ import { Footer } from "@/components/Footer";
 import { themeScript } from "@/lib/theme";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const figtree = Figtree({
+  variable: "--font-figtree",
   subsets: ["latin"],
 });
 
@@ -28,7 +28,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en-GB"
-      className={`${geistSans.variable} h-full antialiased`}
+      className={`${figtree.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>
