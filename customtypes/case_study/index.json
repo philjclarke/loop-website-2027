@@ -111,6 +111,14 @@
           "label": "Feature on homepage"
         },
         "type": "Boolean"
+      },
+      "sort_order": {
+        "config": {
+          "label": "Sort order (lower numbers first)",
+          "placeholder": "e.g. 10",
+          "step": 1
+        },
+        "type": "Number"
       }
     },
     "SEO & Metadata": {
