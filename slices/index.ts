@@ -4,6 +4,7 @@ import BlogList from "./BlogList";
 import CaseStudyList from "./CaseStudyList";
 import ClientList from "./ClientList";
 import ContactDetails from "./ContactDetails";
+import ContactForm from "./ContactForm";
 import Hero from "./Hero";
 import ImageBlock from "./ImageBlock";
 import NumberedList from "./NumberedList";
@@ -16,6 +17,7 @@ export const components = {
 	case_study_list: CaseStudyList,
 	client_list: ClientList,
 	contact_details: ContactDetails,
+	contact_form: ContactForm,
 	hero: Hero,
 	image_block: ImageBlock,
 	numbered_list: NumberedList,
