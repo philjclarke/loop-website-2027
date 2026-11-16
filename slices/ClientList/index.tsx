@@ -18,10 +18,16 @@ export default function ClientList({ slice }: ClientListProps) {
             className="flex min-h-24 items-center justify-center border-r border-b border-line p-6 text-center"
           >
             {isFilled.image(client.logo) ? (
+              /*
+               * Logos are single-colour artwork on a shared canvas. The
+               * filter turns them black in light mode and white in dark
+               * mode, whatever colour they were uploaded in.
+               */
               <PrismicNextImage
                 field={client.logo}
                 fallbackAlt=""
-                className="max-h-10 w-auto object-contain"
+                sizes="(min-width: 1024px) 200px, 45vw"
+                className="h-auto w-full max-w-[200px] opacity-80 brightness-0 dark:invert"
               />
             ) : (
               <span className="font-medium">{client.name}</span>
