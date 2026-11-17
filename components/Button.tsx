@@ -25,7 +25,7 @@ export function Button({
   if (!isFilled.link(field)) return null;
   return (
     <PrismicNextLink field={field} className={CLASSES[variant]}>
-      {children}
+      {children ?? ("text" in field ? field.text : null)}
     </PrismicNextLink>
   );
 }
