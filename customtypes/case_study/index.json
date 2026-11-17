@@ -23,6 +23,9 @@
             },
             "testimonials": {
               "type": "SharedSlice"
+            },
+            "gallery": {
+              "type": "SharedSlice"
             }
           }
         },

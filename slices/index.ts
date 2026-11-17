@@ -5,6 +5,7 @@ import CaseStudyList from "./CaseStudyList";
 import ClientList from "./ClientList";
 import ContactDetails from "./ContactDetails";
 import ContactForm from "./ContactForm";
+import Gallery from "./Gallery";
 import Hero from "./Hero";
 import ImageBlock from "./ImageBlock";
 import NumberedList from "./NumberedList";
@@ -18,6 +19,7 @@ export const components = {
 	client_list: ClientList,
 	contact_details: ContactDetails,
 	contact_form: ContactForm,
+	gallery: Gallery,
 	hero: Hero,
 	image_block: ImageBlock,
 	numbered_list: NumberedList,

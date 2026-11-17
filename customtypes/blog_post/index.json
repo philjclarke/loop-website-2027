@@ -17,6 +17,9 @@
             },
             "image_block": {
               "type": "SharedSlice"
+            },
+            "gallery": {
+              "type": "SharedSlice"
             }
           }
         },

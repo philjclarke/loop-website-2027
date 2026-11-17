@@ -55,6 +55,11 @@
   --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
 }
 
+/* Stop the page scrolling behind an open modal (e.g. the gallery viewer). */
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

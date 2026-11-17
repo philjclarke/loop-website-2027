@@ -46,7 +46,7 @@ type ContentRelationshipFieldWithData<
 		>
 }[Exclude<TCustomType[number], string>["id"]];
 
-type BlogPostDocumentDataSlicesSlice = TextBlockSlice | ImageBlockSlice
+type BlogPostDocumentDataSlicesSlice = TextBlockSlice | ImageBlockSlice | GallerySlice
 
 /**
  * Content for Blog Post documents
@@ -150,7 +150,7 @@ interface BlogPostDocumentData {
  */
 export type BlogPostDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<BlogPostDocumentData>, "blog_post", Lang>;
 
-type CaseStudyDocumentDataSlicesSlice = TextBlockSlice | ImageBlockSlice | NumberedListSlice | TestimonialsSlice
+type CaseStudyDocumentDataSlicesSlice = TextBlockSlice | ImageBlockSlice | NumberedListSlice | TestimonialsSlice | GallerySlice
 
 /**
  * Content for Case Study documents
@@ -407,7 +407,7 @@ interface HomepageDocumentData {
  */
 export type HomepageDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<HomepageDocumentData>, "homepage", Lang>;
 
-type PageDocumentDataSlicesSlice = HeroSlice | TextBlockSlice | NumberedListSlice | ClientListSlice | CaseStudyListSlice | BlogListSlice | TestimonialsSlice | TeamSlice | ImageBlockSlice | ContactDetailsSlice | ContactFormSlice
+type PageDocumentDataSlicesSlice = HeroSlice | TextBlockSlice | NumberedListSlice | ClientListSlice | CaseStudyListSlice | BlogListSlice | TestimonialsSlice | TeamSlice | ImageBlockSlice | ContactDetailsSlice | ContactFormSlice | GallerySlice
 
 /**
  * Content for Page documents
@@ -981,6 +981,91 @@ type ContactFormSliceVariation = ContactFormSliceDefault
 export type ContactFormSlice = prismic.SharedSlice<"contact_form", ContactFormSliceVariation>;
 
 /**
+ * Item in *Gallery → Default → Primary → Images*
+ */
+export interface GallerySliceDefaultPrimaryImagesItem {
+	/**
+	 * Image field in *Gallery → Default → Primary → Images*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: gallery.default.primary.images[].image
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	image: prismic.ImageField<never>;
+	
+	/**
+	 * Caption field in *Gallery → Default → Primary → Images*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Optional, shown when the image is enlarged
+	 * - **API ID Path**: gallery.default.primary.images[].caption
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	caption: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Gallery → Default → Primary*
+ */
+export interface GallerySliceDefaultPrimary {
+	/**
+	 * Columns field in *Gallery → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: 3
+	 * - **API ID Path**: gallery.default.primary.columns
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	columns: prismic.SelectField<"3" | "2", "filled">;
+	
+	/**
+	 * Image shape field in *Gallery → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: Landscape (4:3)
+	 * - **API ID Path**: gallery.default.primary.image_shape
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	image_shape: prismic.SelectField<"Landscape (4:3)" | "Square (1:1)" | "Widescreen (16:9)", "filled">;
+	
+	/**
+	 * Images field in *Gallery → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: gallery.default.primary.images[]
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	images: prismic.GroupField<Simplify<GallerySliceDefaultPrimaryImagesItem>>;
+}
+
+/**
+ * Default variation for Gallery Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type GallerySliceDefault = prismic.SharedSliceVariation<"default", Simplify<GallerySliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *Gallery*
+ */
+type GallerySliceVariation = GallerySliceDefault
+
+/**
+ * Gallery Shared Slice
+ *
+ * - **API ID**: `gallery`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type GallerySlice = prismic.SharedSlice<"gallery", GallerySliceVariation>;
+
+/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -1494,6 +1579,11 @@ declare module "@prismicio/client" {
 			ContactFormSliceDefaultPrimary,
 			ContactFormSliceVariation,
 			ContactFormSliceDefault,
+			GallerySlice,
+			GallerySliceDefaultPrimaryImagesItem,
+			GallerySliceDefaultPrimary,
+			GallerySliceVariation,
+			GallerySliceDefault,
 			HeroSlice,
 			HeroSliceDefaultPrimary,
 			HeroSliceVariation,
