@@ -46,7 +46,7 @@ type ContentRelationshipFieldWithData<
 		>
 }[Exclude<TCustomType[number], string>["id"]];
 
-type BlogPostDocumentDataSlicesSlice = TextBlockSlice | ImageBlockSlice | GallerySlice
+type BlogPostDocumentDataSlicesSlice = TextBlockSlice | ImageBlockSlice | GallerySlice | ButtonsSlice
 
 /**
  * Content for Blog Post documents
@@ -150,7 +150,7 @@ interface BlogPostDocumentData {
  */
 export type BlogPostDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<BlogPostDocumentData>, "blog_post", Lang>;
 
-type CaseStudyDocumentDataSlicesSlice = TextBlockSlice | ImageBlockSlice | NumberedListSlice | TestimonialsSlice | GallerySlice
+type CaseStudyDocumentDataSlicesSlice = TextBlockSlice | ImageBlockSlice | NumberedListSlice | TestimonialsSlice | GallerySlice | ButtonsSlice
 
 /**
  * Content for Case Study documents
@@ -407,7 +407,7 @@ interface HomepageDocumentData {
  */
 export type HomepageDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<HomepageDocumentData>, "homepage", Lang>;
 
-type PageDocumentDataSlicesSlice = HeroSlice | TextBlockSlice | NumberedListSlice | ClientListSlice | CaseStudyListSlice | BlogListSlice | TestimonialsSlice | TeamSlice | ImageBlockSlice | ContactDetailsSlice | ContactFormSlice | GallerySlice
+type PageDocumentDataSlicesSlice = HeroSlice | TextBlockSlice | NumberedListSlice | ClientListSlice | CaseStudyListSlice | BlogListSlice | TestimonialsSlice | TeamSlice | ImageBlockSlice | ContactDetailsSlice | ContactFormSlice | GallerySlice | ButtonsSlice
 
 /**
  * Content for Page documents
@@ -640,6 +640,44 @@ type BlogListSliceVariation = BlogListSliceDefault
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type BlogListSlice = prismic.SharedSlice<"blog_list", BlogListSliceVariation>;
+
+/**
+ * Primary content in *Buttons → Default → Primary*
+ */
+export interface ButtonsSliceDefaultPrimary {
+	/**
+	 * Buttons field in *Buttons → Default → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: buttons.default.primary.links
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	links: prismic.Repeatable<prismic.LinkField<string, string, unknown, prismic.FieldState, "Solid" | "Outline">>;
+}
+
+/**
+ * Default variation for Buttons Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ButtonsSliceDefault = prismic.SharedSliceVariation<"default", Simplify<ButtonsSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *Buttons*
+ */
+type ButtonsSliceVariation = ButtonsSliceDefault
+
+/**
+ * Buttons Shared Slice
+ *
+ * - **API ID**: `buttons`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ButtonsSlice = prismic.SharedSlice<"buttons", ButtonsSliceVariation>;
 
 /**
  * Primary content in *Case Study List → Default → Primary*
@@ -1562,6 +1600,10 @@ declare module "@prismicio/client" {
 			BlogListSliceDefaultPrimary,
 			BlogListSliceVariation,
 			BlogListSliceDefault,
+			ButtonsSlice,
+			ButtonsSliceDefaultPrimary,
+			ButtonsSliceVariation,
+			ButtonsSliceDefault,
 			CaseStudyListSlice,
 			CaseStudyListSliceDefaultPrimary,
 			CaseStudyListSliceVariation,

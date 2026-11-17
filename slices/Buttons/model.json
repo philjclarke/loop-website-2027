@@ -1,0 +1,30 @@
+{
+  "id": "buttons",
+  "name": "Buttons",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "links": {
+          "config": {
+            "allowTargetBlank": true,
+            "allowText": true,
+            "label": "Buttons",
+            "repeat": true,
+            "variants": [
+              "Solid",
+              "Outline"
+            ]
+          },
+          "type": "Link"
+        }
+      },
+      "version": ""
+    }
+  ]
+}

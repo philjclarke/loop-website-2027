@@ -47,6 +47,9 @@
             },
             "gallery": {
               "type": "SharedSlice"
+            },
+            "buttons": {
+              "type": "SharedSlice"
             }
           }
         },
