@@ -9,7 +9,7 @@ import { components } from "@/slices";
 import { getCaseStudy, staticParamsOrPlaceholder } from "@/lib/content";
 import { Container } from "@/components/Container";
 import { RichText } from "@/components/RichText";
-import { SERVICES } from "@/components/CaseStudyCard";
+import { FEATURED_IMAGE_ASPECT, SERVICES } from "@/components/CaseStudyCard";
 
 export default async function CaseStudy({ params }: PageProps<"/work/[uid]">) {
   const { uid } = await params;
@@ -58,12 +58,14 @@ export default async function CaseStudy({ params }: PageProps<"/work/[uid]">) {
       </Container>
       {isFilled.image(data.featured_image) && (
         <Container>
-          <PrismicNextImage
-            field={data.featured_image}
-            className="w-full rounded-2xl"
-            sizes="(min-width: 1152px) 1152px, 100vw"
-            priority
-          />
+          <div className={`${FEATURED_IMAGE_ASPECT} overflow-hidden rounded-2xl bg-surface`}>
+            <PrismicNextImage
+              field={data.featured_image}
+              className="h-full w-full object-cover"
+              sizes="(min-width: 1152px) 1152px, 100vw"
+              priority
+            />
+          </div>
         </Container>
       )}
       <SliceZone slices={data.slices} components={components} />
