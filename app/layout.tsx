@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { PrismicPreview } from "@prismicio/next";
 import { getPreviewRef } from "@prismicio/next";
 import { repositoryName } from "@/prismicio";
@@ -38,6 +39,8 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
         <Header settings={settings} />
         <main className="flex-1">{children}</main>
         <Footer settings={settings} />
+        {/* Cookieless visit statistics (Vercel Web Analytics). */}
+        <Analytics />
       </body>
       <PrismicPreview repositoryName={repositoryName} />
     </html>
