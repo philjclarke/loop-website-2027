@@ -55,7 +55,7 @@ export function GalleryGrid({
               type="button"
               onClick={() => open(i)}
               aria-label={`Enlarge image ${i + 1} of ${items.length}${item.image.alt ? `: ${item.image.alt}` : ""}`}
-              className={`group block w-full cursor-zoom-in overflow-hidden rounded-xl bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground sm:rounded-2xl ${ASPECT[shape]}`}
+              className={`group block w-full cursor-zoom-in overflow-hidden rounded-xl border border-line bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground sm:rounded-2xl ${ASPECT[shape]}`}
             >
               <PrismicNextImage
                 field={item.image}
