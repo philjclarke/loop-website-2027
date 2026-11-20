@@ -1,6 +1,7 @@
 import { asText } from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import type { CaseStudyDocument } from "@/prismicio-types";
+import { formatYear } from "@/lib/site";
 
 export const SERVICES = [
   { id: "design", label: "Design" },
@@ -37,7 +38,7 @@ export function CaseStudyCard({ doc }: { doc: CaseStudyDocument }) {
       </div>
       <div className="mt-4 flex items-baseline justify-between gap-4">
         <h3 className="text-lg font-medium">{asText(doc.data.title) || doc.uid}</h3>
-        {doc.data.year && <span className="text-sm text-muted">{doc.data.year}</span>}
+        {doc.data.year && <span className="text-sm text-muted">{formatYear(doc.data.year)}</span>}
       </div>
       {meta && <p className="mt-1 text-sm text-muted">{meta}</p>}
     </PrismicNextLink>

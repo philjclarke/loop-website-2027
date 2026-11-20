@@ -43,6 +43,14 @@ export async function getPage(uid: string, ref?: string) {
   return page;
 }
 
+/** Every standard page (Services, About, Work, Blog, legal pages…), for the sitemap. */
+export async function getPages(ref?: string) {
+  "use cache";
+  const pages = await createClient().getAllByType("page", { ref });
+  tag(pages);
+  return pages;
+}
+
 export async function getCaseStudy(uid: string, ref?: string) {
   "use cache";
   const page = await createClient()

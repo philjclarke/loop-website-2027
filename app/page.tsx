@@ -4,6 +4,7 @@ import { SliceZone } from "@prismicio/react";
 import { getPreviewRef } from "@prismicio/next";
 import { components } from "@/slices";
 import { getHomepage } from "@/lib/content";
+import { shareImages } from "@/lib/site";
 import { Container } from "@/components/Container";
 
 export default async function Home() {
@@ -27,6 +28,6 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: page?.data.meta_title || undefined,
     description: page?.data.meta_description,
-    openGraph: { images: [{ url: asImageSrc(page?.data.meta_image) ?? "" }] },
+    openGraph: shareImages(asImageSrc(page?.data.meta_image)),
   };
 }

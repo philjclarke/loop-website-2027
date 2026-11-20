@@ -7,6 +7,7 @@ import { getPreviewRef, PrismicNextImage } from "@prismicio/next";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { getBlogPost, staticParamsOrPlaceholder } from "@/lib/content";
+import { shareImages } from "@/lib/site";
 import { Container } from "@/components/Container";
 import { RichText } from "@/components/RichText";
 import { formatDate } from "@/components/PostCard";
@@ -54,11 +55,7 @@ export async function generateMetadata({ params }: PageProps<"/blog/[uid]">): Pr
   return {
     title: page.data.meta_title || asText(page.data.title),
     description: page.data.meta_description || page.data.excerpt,
-    openGraph: {
-      images: [
-        { url: asImageSrc(page.data.meta_image) ?? asImageSrc(page.data.featured_image) ?? "" },
-      ],
-    },
+    openGraph: shareImages(asImageSrc(page.data.meta_image), asImageSrc(page.data.featured_image)),
   };
 }
 

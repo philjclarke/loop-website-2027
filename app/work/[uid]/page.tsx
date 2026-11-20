@@ -3,10 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { asImageSrc, asText, isFilled } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
-import { getPreviewRef, PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { getPreviewRef, PrismicNextImage } from "@prismicio/next";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { getCaseStudy, staticParamsOrPlaceholder } from "@/lib/content";
+import { formatYear, shareImages } from "@/lib/site";
 import { Container } from "@/components/Container";
 import { RichText } from "@/components/RichText";
 import { FEATURED_IMAGE_ASPECT, SERVICES } from "@/components/CaseStudyCard";
@@ -22,7 +23,7 @@ export default async function CaseStudy({ params }: PageProps<"/work/[uid]">) {
     { label: "Client", value: data.client },
     { label: "Scope", value: data.scope },
     { label: "Services", value: services.join(", ") },
-    { label: "Year", value: data.year },
+    { label: "Year", value: formatYear(data.year) },
   ].filter((fact) => fact.value);
 
   return (
@@ -46,14 +47,6 @@ export default async function CaseStudy({ params }: PageProps<"/work/[uid]">) {
               </div>
             ))}
           </dl>
-        )}
-        {isFilled.link(data.website) && (
-          <PrismicNextLink
-            field={data.website}
-            className="mt-6 inline-block text-sm underline underline-offset-4"
-          >
-            Visit the website
-          </PrismicNextLink>
         )}
       </Container>
       {isFilled.image(data.featured_image) && (
@@ -83,11 +76,7 @@ export async function generateMetadata({
   return {
     title: page.data.meta_title || asText(page.data.title),
     description: page.data.meta_description || asText(page.data.summary),
-    openGraph: {
-      images: [
-        { url: asImageSrc(page.data.meta_image) ?? asImageSrc(page.data.featured_image) ?? "" },
-      ],
-    },
+    openGraph: shareImages(asImageSrc(page.data.meta_image), asImageSrc(page.data.featured_image)),
   };
 }
 

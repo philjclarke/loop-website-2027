@@ -6,6 +6,7 @@ import { getPreviewRef } from "@prismicio/next";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { getPage, staticParamsOrPlaceholder } from "@/lib/content";
+import { shareImages } from "@/lib/site";
 
 /** Services, About, Work (listing), Blog (listing), legal pages, etc. */
 export default async function Page({ params }: PageProps<"/[uid]">) {
@@ -24,7 +25,7 @@ export async function generateMetadata({ params }: PageProps<"/[uid]">): Promise
   return {
     title: page.data.meta_title || undefined,
     description: page.data.meta_description,
-    openGraph: { images: [{ url: asImageSrc(page.data.meta_image) ?? "" }] },
+    openGraph: shareImages(asImageSrc(page.data.meta_image)),
   };
 }
 

@@ -8,6 +8,7 @@ import { getSettings } from "@/lib/content";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { themeScript } from "@/lib/theme";
+import { SITE_URL, shareImages } from "@/lib/site";
 import "./globals.css";
 
 const figtree = Figtree({
@@ -19,7 +20,9 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSettings(await getPreviewRef());
   const siteName = settings?.data.site_name || "loop";
   return {
+    metadataBase: new URL(SITE_URL),
     title: { default: siteName, template: `%s | ${siteName}` },
+    openGraph: { siteName, locale: "en_GB", type: "website", ...shareImages() },
   };
 }
 
