@@ -4,6 +4,7 @@ import type { SettingsDocument } from "@/prismicio-types";
 import { Container } from "./Container";
 import { RichText } from "./RichText";
 import { Button } from "./Button";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Footer({ settings }: { settings: SettingsDocument | null }) {
   const data = settings?.data;
@@ -35,15 +36,18 @@ export function Footer({ settings }: { settings: SettingsDocument | null }) {
           </a>
         )}
       </Container>
-      <Container className="flex flex-col gap-4 border-t border-line py-8 text-sm text-muted sm:flex-row sm:justify-between">
+      <Container className="flex flex-col gap-4 border-t border-line py-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
         <p>© {siteName}</p>
-        <ul className="flex flex-wrap gap-x-6 gap-y-2">
-          {[...social, ...legal].map((link, i) => (
-            <li key={i}>
-              <PrismicNextLink field={link} className="hover:text-foreground" />
-            </li>
-          ))}
-        </ul>
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            {[...social, ...legal].map((link, i) => (
+              <li key={i}>
+                <PrismicNextLink field={link} className="hover:text-foreground" />
+              </li>
+            ))}
+          </ul>
+          <ThemeToggle />
+        </div>
       </Container>
     </footer>
   );

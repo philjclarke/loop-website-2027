@@ -4,7 +4,6 @@ import { isFilled } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 import type { SettingsDocument } from "@/prismicio-types";
 import { Container } from "./Container";
-import { ThemeToggle } from "./ThemeToggle";
 
 /** Used until navigation is filled in on the Settings document in Prismic. */
 const FALLBACK_NAV = [
@@ -17,7 +16,8 @@ const FALLBACK_NAV = [
 
 export function Header({ settings }: { settings: SettingsDocument | null }) {
   const siteName = settings?.data.site_name || "loop";
-  const nav = settings?.data.navigation.filter((link) => isFilled.link(link)) ?? [];
+  const nav =
+    settings?.data.navigation.filter((link) => isFilled.link(link)) ?? [];
 
   return (
     <header className="py-6">
@@ -41,26 +41,26 @@ export function Header({ settings }: { settings: SettingsDocument | null }) {
             className="hidden h-8 w-auto dark:block"
           />
         </Link>
-        <div className="flex items-center gap-6">
-          <nav aria-label="Main">
-            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-              {nav.length
-                ? nav.map((link, i) => (
-                    <li key={i}>
-                      <PrismicNextLink field={link} className="hover:text-muted" />
-                    </li>
-                  ))
-                : FALLBACK_NAV.map((item) => (
-                    <li key={item.href}>
-                      <Link href={item.href} className="hover:text-muted">
-                        {item.label}
-                      </Link>
-                    </li>
-                  ))}
-            </ul>
-          </nav>
-          <ThemeToggle />
-        </div>
+        <nav aria-label="Main">
+          <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            {nav.length
+              ? nav.map((link, i) => (
+                  <li key={i}>
+                    <PrismicNextLink
+                      field={link}
+                      className="hover:text-muted"
+                    />
+                  </li>
+                ))
+              : FALLBACK_NAV.map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href} className="hover:text-muted">
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+          </ul>
+        </nav>
       </Container>
     </header>
   );

@@ -27,7 +27,7 @@ export function CaseStudyCard({ doc }: { doc: CaseStudyDocument }) {
 
   return (
     <PrismicNextLink document={doc} className="group block">
-      <div className={`${FEATURED_IMAGE_ASPECT} overflow-hidden rounded-2xl bg-surface`}>
+      <div className={`${FEATURED_IMAGE_ASPECT} overflow-hidden rounded-2xl border border-line bg-surface`}>
         <PrismicNextImage
           field={doc.data.featured_image}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"

@@ -58,7 +58,7 @@ export default async function CaseStudy({ params }: PageProps<"/work/[uid]">) {
       </Container>
       {isFilled.image(data.featured_image) && (
         <Container>
-          <div className={`${FEATURED_IMAGE_ASPECT} overflow-hidden rounded-2xl bg-surface`}>
+          <div className={`${FEATURED_IMAGE_ASPECT} overflow-hidden rounded-2xl border border-line bg-surface`}>
             <PrismicNextImage
               field={data.featured_image}
               className="h-full w-full object-cover"
